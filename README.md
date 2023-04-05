@@ -1,5 +1,5 @@
 # EOS JSON Running-Config to Text Converter
-This script reformats the output of 'show running-config | json' back into plain-text for easier human review/manipulation. It also attemts to reformat to a similar syle to the plain-text running-config output.
+This script reformats the output of `show running-config | json` back into plain-text for easier human review/manipulation. It also attemts to reformat to a similar syle to the plain-text running-config output.
 
 ## Requirements
 * Python 3.x
