@@ -78,19 +78,22 @@ def reformat_output(config: list) -> list:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("input_file", help="path to input file")
-    parser.add_argument("output_file", help="path to output file")
+    parser.add_argument("--input_file", help="path to input file")
+    parser.add_argument("--output_file", help="path to output file")
     args = parser.parse_args()
 
 
-    with open('args.input_file','r') as f:
+    with open(args.input_file,'r') as f:
         data = json.load(f)
 
-    output = parse_block(data['cmds'])
+    if type(data) is list:
+        output = parse_block(data[0]['cmds'])
+    else:
+        output = parse_block(data['cmds'])
 
     formatted_output = reformat_output(output)
 
-    with open(args.outfile,'w') as outFile:
+    with open(args.output_file,'w') as outFile:
         for item in formatted_output:
             outFile.write("%s\n" % item)
 
